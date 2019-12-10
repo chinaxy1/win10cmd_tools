@@ -7,7 +7,7 @@
 :: （注：需要以管理员身份运行该CMD）
 :: ------------------------------
 
-rem 是否展示当前BCDEDIT配置，默认否
+rem 是否展示当前bcdedit配置，默认否
 rem call:showCurrentBcd
 
 :main
@@ -21,7 +21,7 @@ if %input% equ 1 (
 ) else if %input% equ 2 (
     call:resetBcdConfig
 ) else (
-    echo 没有这个选项！
+    echo 没有这个选项！:(
     echo;
     goto:main
 )
