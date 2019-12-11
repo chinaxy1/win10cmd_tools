@@ -33,10 +33,10 @@ set FOLDER_COLLECTION_NAME=“— ’≤ÿ
 set PIC_PATH=D:\Pictures\Assets
 
 if exist %PIC_PATH% (
-	call:logger.warn %PIC_PATH%%LANGUAGE_FOLDER_ALREADY_EXIST_ZH_CN%
+    call:logger.warn %PIC_PATH%%LANGUAGE_FOLDER_ALREADY_EXIST_ZH_CN%
 ) else (
-	call:logger.info %LANGUAGE_CREATE_FOLDER_ZH_CN%%PIC_PATH%
-	md %PIC_PATH%
+    call:logger.info %LANGUAGE_CREATE_FOLDER_ZH_CN%%PIC_PATH%
+    md %PIC_PATH%
 )
 
 call:logger.info %LANGUAGE_COPY_LOCK_SCREEN_FILE_START_ZH_CN%

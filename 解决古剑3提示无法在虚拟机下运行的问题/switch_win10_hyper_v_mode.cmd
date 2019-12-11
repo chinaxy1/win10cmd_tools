@@ -57,9 +57,9 @@ goto:eof
 :reboot
 set /p select=是否现在重启电脑？(Y/N)：
 if /i "%select%"=="Y" (
-	shutdown -r -t 0
+    shutdown -r -t 0
 ) else (
-	echo;
+    echo;
 )
 goto:eof
 
