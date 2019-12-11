@@ -28,9 +28,9 @@ if %input% equ 1 (
 
 echo;
 echo 请重启电脑以生效操作！
-rem call:reboot
 echo;
 
+rem call:reboot
 pause
 goto:eof
 
@@ -55,7 +55,12 @@ bcdedit /set hypervisorlaunchtype Auto
 goto:eof
 
 :reboot
-shutdown -r -t 0
+set /p select=是否现在重启电脑？(Y/N)：
+if /i "%select%"=="Y" (
+	shutdown -r -t 0
+) else (
+	echo;
+)
 goto:eof
 
 :: ------------------------------
