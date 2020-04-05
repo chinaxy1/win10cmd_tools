@@ -30,7 +30,7 @@ echo;
 echo 请重启电脑以生效操作！
 echo;
 
-rem call:reboot
+call:reboot
 pause
 goto:eof
 

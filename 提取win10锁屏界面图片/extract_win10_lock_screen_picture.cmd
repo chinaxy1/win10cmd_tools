@@ -40,7 +40,7 @@ if exist %PIC_PATH% (
 )
 
 call:logger.info %LANGUAGE_COPY_LOCK_SCREEN_FILE_START_ZH_CN%
-xcopy %HOMEDRIVE%%HOMEPATH%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets D:\Pictures\Assets /e
+xcopy %HOMEDRIVE%%HOMEPATH%\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets %PIC_PATH% /e
 call:logger.info %LANGUAGE_COPY_LOCK_SCREEN_FILE_END_ZH_CN%
 
 cd /d %PIC_PATH%

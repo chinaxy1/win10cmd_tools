@@ -1,0 +1,3 @@
+- 在网上看了一些关于解决“sorry,this application cannot run under a virtual machine”的回答，个人尝试了修改BIOS和卸载WIN10的Hyper-V，皆不能解决；
+- 这个脚本通过编辑BCD引导项来关闭hypervisor模式，古剑三可以正常打开了，写成脚本方便一键切换；
+- 注意要使用**管理员模式**运行，因为bcdedit命令修改需要；
