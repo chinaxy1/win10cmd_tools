@@ -18,12 +18,14 @@ set /p input=您的选项为：
 
 if %input% equ 1 (
     call:closeHyperV
-) else if %input% equ 2 (
-    call:resetBcdConfig
 ) else (
-    echo 没有这个选项！:(
-    echo;
-    goto:main
+	if %input% equ 2 (
+		call:resetBcdConfig
+	) else (
+		echo 没有这个选项！:(
+		echo;
+		goto:main
+	)
 )
 
 echo;
