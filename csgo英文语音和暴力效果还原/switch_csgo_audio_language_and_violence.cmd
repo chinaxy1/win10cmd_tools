@@ -45,13 +45,14 @@ set /p input=您的选项为：
 if %input% equ 1 (
 	if "!var_audioLanguage!"=="中文" (
 		call:revertEnglishAudioAndBackupChinese
-		cls
 	) else (
 		if "!var_audioLanguage!"=="英文" (
 			call:isAudioChineseBackupFileExist
 			if "!var_isAudioChineseBackupFileExist!"=="true" (
 				call:changeAudioChinese
-				cls
+			) else (
+				echo;
+				goto:main
 			)
 		)
 	)
@@ -59,13 +60,14 @@ if %input% equ 1 (
 	if %input% equ 2 (
 		if "!var_violence!"=="和谐版" (
 			call:revertHighViolenceAndBackupLowViolence
-			cls
 		) else (
 			if "!var_violence!"=="原版" (
 				call:isLowViolenceBackupFileExist
 				if "!var_isLowViolenceBackupFileExist!"=="true" (
 					call:changeLowViolence
-					cls
+				) else (
+					echo;
+					goto:main
 				)
 			)
 		)
@@ -79,8 +81,7 @@ if %input% equ 1 (
 		)
 	)
 )
-echo;
-echo;
+cls
 goto:main
 
 
