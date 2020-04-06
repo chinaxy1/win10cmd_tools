@@ -6,13 +6,14 @@ setlocal EnableDelayedExpansion
 :: 切换csgo无线电语言和暴力效果
 :: ------------------------------
 
-:: 变量配置
-set CSGO_INSTALL_PATH=F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive
+:: [变量配置]
+:: CSGO_INSTALL_PATH 参数手动设置后，将跳过自动检测安装路径
+:: set CSGO_INSTALL_PATH=F:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive
 
 
 :main
 if defined CSGO_INSTALL_PATH (
-	cd /d "%CSGO_INSTALL_PATH%\csgo\"
+	cd /d "!CSGO_INSTALL_PATH!\csgo\"
 	call:isRevertAudioEnglish
 	call:isRevertHighViolence
 	echo ==================================
@@ -87,7 +88,32 @@ goto:main
 
 rem 自动查找CSGO安装路径
 :findCsgoInstallPath
+for %%a in (C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z) do (
+	if exist "%%a:\Program Files (x86)\Steam\steamapps\common\Counter-Strike Global Offensive" (
+		set CSGO_INSTALL_PATH=%%a:\Program Files ^(x86^)\Steam\steamapps\common\Counter-Strike Global Offensive
+		echo [INFO] 自动检测游戏安装目录：!CSGO_INSTALL_PATH!
+		echo;
+		goto:eof
+	)
+)
+if not defined CSGO_INSTALL_PATH (
+	echo [WARN] 未能自动检测到游戏安装目录
+	echo [TIPS] 示例：X:\xxx\Steam\steamapps\common\Counter-Strike Global Offensive
+	echo [TIPS] STEAM库-游戏名称-右键-管理-浏览本地文件
+	call:manualSetting
+)
+goto:eof
+
+
+rem 手动输入游戏安装目录
+:manualSetting
 echo;
+set /p CSGO_INSTALL_PATH=请输入游戏安装路径：
+echo;
+if not exist !CSGO_INSTALL_PATH!\csgo\ (
+	echo [WARN] 不是有效的游戏目录！
+	goto:manualSetting
+)
 goto:eof
 
 
